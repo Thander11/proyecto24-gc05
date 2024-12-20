@@ -59,10 +59,10 @@ class PagoViewSet(viewsets.ModelViewSet):
     queryset = Pago.objects.all()
     serializer_class = PagoSerializer
 
-    # Get lista de pagos por id_usuario
+    # Get lista de pagos por _idusuario
     @action(detail=False, methods=['get'])
-    def por_usuario(self, request, id_usuario=None):
-        pagos = Pago.objects.filter(id_usuario=id_usuario)
+    def por_usuario(self, request, _idusuario=None):
+        pagos = Pago.objects.filter(_idusuario=_idusuario)
         serializer = self.get_serializer(pagos, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -100,10 +100,10 @@ class PerfilesViewSet(viewsets.ModelViewSet):
     queryset = Perfiles.objects.all()
     serializer_class = PerfilesSerializer
 
-    # Get lista de perfiles por id_usuario
+    # Get lista de perfiles por _idusuario
     @action(detail=False, methods=['get'])
-    def por_usuario(self, request, id_usuario=None):
-        perfiles = Perfiles.objects.filter(id_usuario=id_usuario)
+    def por_usuario(self, request, _idusuario=None):
+        perfiles = Perfiles.objects.filter(_idusuario=_idusuario)
         serializer = self.get_serializer(perfiles, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
