@@ -100,7 +100,7 @@ class PerfilesViewSet(viewsets.ModelViewSet):
     queryset = Perfiles.objects.all()
     serializer_class = PerfilesSerializer
 
-    # Get lista de perfiles por _idusuario
+    # Get lista de perfiles por _idusuario voy a poner texto para hacer un commit
     @action(detail=False, methods=['get'])
     def por_usuario(self, request, _idusuario=None):
         perfiles = Perfiles.objects.filter(idusuario=_idusuario)
