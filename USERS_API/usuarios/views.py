@@ -103,7 +103,7 @@ class PerfilesViewSet(viewsets.ModelViewSet):
     # Get lista de perfiles por _idusuario
     @action(detail=False, methods=['get'])
     def por_usuario(self, request, _idusuario=None):
-        perfiles = Perfiles.objects.filter(_idusuario=_idusuario)
+        perfiles = Perfiles.objects.filter(idusuario=_idusuario)
         serializer = self.get_serializer(perfiles, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
